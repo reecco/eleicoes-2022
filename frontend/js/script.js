@@ -1,0 +1,3 @@
+function refreshBrowse() {
+    location.reload();
+}
