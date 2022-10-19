@@ -20,7 +20,7 @@ cd eleicoes-2022
 ````
 Instale as dependências do projeto
 ````
-npm install express ejs axios nodemon --save
+npm install
 ````
 Para executar o projeto, digite no terminal
 ````
