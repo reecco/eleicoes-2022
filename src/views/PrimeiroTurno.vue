@@ -4,26 +4,26 @@
 
         <table class="table">
             <thead>
-                <tr class="">
-                    <th scope="col">Ranking</th>
+                <tr>
+                    <th scope="col" class="item">Ranking</th>
                     <th scope="col">Chapa</th>
-                    <th scope="col">Número</th>
-                    <th scope="col">Partido/Coligação</th>
+                    <th scope="col" class="item">Número</th>
+                    <th scope="col" class="item">Partido/Coligação</th>
                     <th scope="col">Votos</th>
                     <th scope="col">Porcentagem</th>
-                    <th scope="col">Situação</th>
+                    <th scope="col" class="item">Situação</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(candidato, index) in candidatos" :key="index">
-                    <th scope="row">{{ candidato.seq }}º</th>
+                    <th scope="row" class="item">{{ candidato.seq }}º</th>
                     <td>{{ candidato.nm }} / {{ candidato.nv }}</td>
-                    <td>{{ candidato.n }}</td>
-                    <td>{{ candidato.cc }}</td>
-                    <td>{{ candidato.vap.toLocaleString('pt-BR') }}</td>
+                    <td class="item">{{ candidato.n }}</td>
+                    <td class="item">{{ candidato.cc }}</td>
+                    <td>{{ candidato.vap }}</td>
                     <td>{{ candidato.pvap }}%</td>
-                    <td v-if="candidato.st == '2º turno'" class="bg-success text-light">{{ candidato.st }}</td>
-                    <td v-else class="bg-danger text-light">{{ candidato.st }}</td>
+                    <td v-if="candidato.st == '2º turno'" class="bg-success text-light item">{{ candidato.st }}</td>
+                    <td v-else class="bg-danger text-light item">{{ candidato.st }}</td>
                 </tr>
             </tbody>
         </table>
@@ -33,7 +33,6 @@
         </div>
 
         <h2>Foram para o 2º turno</h2>
-        <h3><a href="/apuracao/turno/2">Acompanhe o 2º turno aqui</a></h3>
         <div class="candidatos">
             <div class="candidato" v-for="(candidato, index) in candidatosTurno2" :key="index">
                 <img v-if="candidato.seq == 1" src="/img/lula.webp" alt="Candidato Lula">
@@ -42,6 +41,9 @@
                 <p>{{ candidato.vap }} votos</p>
                 <p>{{ candidato.pvap }}%</p>
             </div>
+        </div>
+        <div class="link">
+            <h3><a href="/apuracao/turno/2">Acompanhe o 2º turno aqui</a></h3>
         </div>
     </div>
 </template>
@@ -125,6 +127,10 @@ export default {
 </script>
 
 <style scoped>
+.home {
+    margin-top: 10%;
+}
+
 .home h1 {
     text-align: center;
     margin-top: 5%;
@@ -146,19 +152,30 @@ td:hover {
     background-color: #e0e4e4;
 }
 
-.home h2,
-.home h3 {
+.chartBox {
+    margin-top: 5%;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home h2 {
     text-align: center;
     color: rgb(40, 37, 96);
     margin-top: 10%;
     font-size: 2rem;
 }
 
+.link {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+
 .home h3 a {
     text-decoration: underline;
     font-size: 1.5rem;
     color: rgb(40, 37, 96);
-    text-align: center;
 }
 
 .home h3 a:hover {
@@ -171,6 +188,7 @@ td:hover {
     justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
+    align-items: center;
 }
 
 .candidato {
@@ -190,10 +208,56 @@ td:hover {
     font-size: 20px;
 }
 
-.chartBox {
-    margin-top: 5%;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+@media screen and (max-width: 375px) {
+    .home h1 {
+        font-size: 1.5rem;
+    }
+
+    .chartBox {
+        margin-top: 5%;
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home h2 {
+        font-size: 1.3rem;
+    }
+
+    .home h3 a {
+        font-size: 1.2rem;
+    }
+
+    .item {
+        display: none;
+    }
+
+    .candidatos {
+        flex-direction: column;
+    }
+
+    .chartBox {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .home h1 {
+        font-size: 1.7rem;
+    }
+
+    .item {
+        display: none;
+
+    }
+
+    .chartBox {
+        width: 400px;
+    }
+
+    .candidatos {
+        display: flex;
+        flex-direction: column;
+    }
 }
 </style>

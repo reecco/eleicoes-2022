@@ -4,25 +4,25 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Ranking</th>
+                    <th scope="col" class="item">Ranking</th>
                     <th scope="col">Chapa</th>
-                    <th scope="col">Número</th>
-                    <th scope="col">Partido/Coligação</th>
+                    <th scope="col" class="item">Número</th>
+                    <th scope="col" class="item">Partido/Coligação</th>
                     <th scope="col">Votos</th>
                     <th scope="col">Porcentagem</th>
-                    <th scope="col">Situação</th>
+                    <th scope="col" class="item">Situação</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(candidato, index) in candidatos" :key="index">
-                    <th scope="row">{{ candidato.seq }}º</th>
+                    <th scope="row" class="item">{{ candidato.seq }}º</th>
                     <td>{{ candidato.nm }} / {{ candidato.nv }}</td>
-                    <td>{{ candidato.n }}</td>
-                    <td>{{ candidato.cc }}</td>
+                    <td class="item">{{ candidato.n }}</td>
+                    <td class="item">{{ candidato.cc }}</td>
                     <td>{{ candidato.vap }}</td>
                     <td>{{ candidato.pvap }}%</td>
-                    <td v-if="candidato.st == 'Eleito'" class="bg-success text-light">{{ candidato.st }}</td>
-                    <td v-else class="bg-danger text-light">{{ candidato.st }}</td>
+                    <td v-if="candidato.st == 'Eleito'" class="bg-success text-light item">{{ candidato.st }}</td>
+                    <td v-else class="bg-danger text-light item">{{ candidato.st }}</td>
                 </tr>
             </tbody>
         </table>
@@ -41,8 +41,8 @@
                 <img v-show="eleito.nm == 'JAIR BOLSONARO'" src="/img/bolsonaro.webp" alt="Candidato eleito">
                 <p>{{ eleito.nm }}</p>
                 <p>{{ eleito.vap }} votos</p>
-                <p>{{ eleito.pvap }} %</p>
-                <p>Eleito</p>
+                <p>{{ eleito.pvap }}%</p>
+                <p>Situação: {{ eleito.st }}</p>
             </div>
         </div>
     </div>
@@ -135,6 +135,10 @@ export default {
 </script>
 
 <style scoped>
+
+.home {
+    margin-top: 10%;
+}
 .home h1 {
     text-align: center;
     margin-top: 5%;
@@ -173,6 +177,13 @@ td:hover {
     color: #FEFEFE;
 }
 
+.chartBox {
+    margin-top: 15%;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .candidatos {
     margin-top: 10%;
     display: flex;
@@ -199,10 +210,31 @@ td:hover {
     text-align: center;
 }
 
-.chartBox {
-    margin-top: 5%;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+@media screen and (max-width: 375px) {
+    .home h1 {
+        font-size: 1.5rem;
+    }
+
+    .item {
+        display: none;
+    }
+
+    .chartBox {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .home h1 {
+        font-size: 1.7rem;
+    }
+
+    .item {
+        display: none;
+    }
+
+    .chartBox {
+        width: 400px;
+    }
 }
 </style>

@@ -52,10 +52,6 @@ h2 {
   font-size: 2rem;
 }
 
-p {
-  margin-top: 5%;
-}
-
 a {
   width: 300px;
   border: 3px solid rgb(40, 37, 96);
@@ -73,5 +69,49 @@ a {
 a:hover {
   background-color: transparent;
   color: rgb(40, 37, 96);
+}
+
+@media screen and (max-width: 375px) {
+  .home {
+    height: 400px;
+  }
+
+  h1 {
+    margin-top: 10%;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  a {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  h1 {
+    margin-top: 10%;
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  a {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 415px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
 }
 </style>

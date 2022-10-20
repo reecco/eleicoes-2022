@@ -12,7 +12,7 @@
         <li>API TSE</li>
       </ul>
     </div>
-    <h3>Contato</h3>
+    <h2>Contato</h2>
     <div class="contato">
       <a href="https://www.linkedin.com/in/fredericorecco/" target="_blank">
         <img src="https://raw.githubusercontent.com/fredcardoso191/twitter-api/main/frontend/imgs/linkedin-2-240.png"
@@ -54,6 +54,10 @@ export default {
   align-items: center;
 }
 
+.stack h3 {
+  font-size: 1.2rem;
+}
+
 .list {
   margin-top: 1%;
   list-style-type: none;
@@ -65,7 +69,7 @@ li {
   font-size: 1.2rem;
 }
 
-.about h3 {
+.about h2 {
   margin-top: 2%;
   text-align: center;
 }
@@ -84,5 +88,66 @@ li {
 
 .contato a img:hover {
   scale: 1.1;
+}
+
+@media screen and (max-width: 375px) {
+  .about h1 {
+    font-size: 1.5rem;
+    margin-top: 15%;
+  }
+
+  .stack {
+    margin-top: 5%;
+  }
+
+  .stack h3{
+    font-size: 1.2rem;
+  }
+
+  .list {
+    margin-right: 0;
+  }
+
+  li {
+    font-size: 1rem;
+  }
+
+  .contato {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contato a img {
+    margin: 20px;
+  }
+}
+
+@media screen and (max-width: 414px){
+  .about h1 {
+    font-size: 1.7rem;
+    margin-top: 15%;
+  }
+
+  .stack {
+    margin-top: 5%;
+  }
+
+  .stack h3 {
+    font-size: 1.2rem;
+  }
+
+  .list {
+    margin-right: 0;
+  }
+
+  .about h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about h1 {
+    font-size: 3rem;
+  }
 }
 </style>
